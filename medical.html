@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Задание</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <style>
+      .bg {
+        background-image: url("https://www.tokkoro.com/picsup/3302572-lines-wavy-background-light.jpg");
+        height: 100%;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+      }
+    </style>
+  </head>
+  <body class="bg">
+    <header class="py-4 bg-primary text-white text-center">
+      <img class="d-block mx-auto mb-3 rounded-circle" src="http://www.fnkc.ru/img/logo.png" width="150px">
+      <h2>Простая система для сбора данных осмотра пациента</h2>
+    </header>
+    <div class="container bg-light p-4">
+      <h4 class="mb-4">Данные пациента</h4>
+      <form method="POST" action="methodPost.php" class="needs-validation" novalidate> 
+        <div class="form-group mb-3">
+          <label>ID пациента</label>
+          <input name="id_patient" type="text" class="form-control" required>
+          <div class="invalid-feedback">Требуется ввести ID пациента</div>
+        </div>
+        <div class="form-row">
+          <div class="form-group col-md-4 mb-3">
+            <label>Фамилия</label>
+            <input name="surname" type="text" class="form-control" placeholder="Иванов" required>
+            <div class="invalid-feedback">Требуется ввести фамилию</div>
+          </div>
+          <div class="form-group col-md-4 mb-3">
+            <label>Имя</label>
+            <input name="name" type="text" class="form-control" placeholder="Иван" required>
+            <div class="invalid-feedback">Требуется ввести имя</div>
+          </div>
+          <div class="form-group col-md-4 mb-3">
+            <label>Отчество</label>
+            <input name="middle_name" type="text" class="form-control" placeholder="Иванович" required>
+            <div class="invalid-feedback">Требуется ввести отчество</div>
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="col-md-4 mb-3">
+            <label>Рост<span class="text-muted">(В сантиметрах)</span></label>
+            <input name="height" type="text" class="form-control" required>
+            <div class="invalid-feedback">Требуется ввести рост</div>
+          </div>
+          <div class="col-md-4 mb-3">
+            <label>Вес<span class="text-muted">(В килограммах)</span></label>
+            <input name="weight" type="text" class="form-control" required>
+            <div class="invalid-feedback">Требуется ввести вес</div>
+          </div>
+          <div class="col-md-4 mb-3">
+            <label>Группа крови</label>
+            <select name="blood" class="custom-select d-block w-100" required>
+              <option selected hidden value="">Choose...</option>
+              <option value="I Группа крови">I Группа крови</option>
+              <option value="II Группа крови">II Группа крови</option>
+              <option value="III Группа крови">III Группа крови</option>
+              <option value="IV Группа крови">IV Группа крови</option>
+            </select>
+            <div class="invalid-feedback">Требуется выбрать группу крови</div>
+          </div>
+        </div>
+        <button class="btn btn-primary btn-lg btn-block w-50 mb-4" type="submit">Сохранить данные</button>
+        <hr class="mb-4">
+        <h4 class="mb-4">Редактирование данных пациента</h4>
+        <a href="methodGet.php" class="btn btn-secondary btn-lg btn-block w-50" type="submit">Редактировать данные</a>
+        <hr class="mb-4">
+        <a href="mainMenu.html" class="btn btn-secondary btn-lg btn-block w-50" type="submit">Вернуться на главную страницу</a>
+      </form>
+    </div>
+    <footer class="bg-dark text-white text-center p-2">
+      <div class="container">
+        <p>Федеральное государственное бюджетное учреждение «Национальный медицинский исследовательский центр детской гематологии, онкологии и иммунологии имени Дмитрия Рогачева» Министерства здравоохранения Российской Федерации<br>© 2016 – 2020 гг. Все права защищены.</p>
+      </div>
+    </footer>
+    <script>(function() {'use strict'; window.addEventListener('load', function() { var forms = document.getElementsByClassName('needs-validation'); var validation = Array.prototype.filter.call(forms, function(form) { form.addEventListener('submit', function(event) { if (form.checkValidity() === false) { event.preventDefault(); event.stopPropagation(); } form.classList.add('was-validated'); }, false); }); }, false); })();</script>
+  </body>
+</html>
