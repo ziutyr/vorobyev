@@ -71,17 +71,23 @@
     	<h4 class="mb-4">Краткая инструкция по редактированию</h4>
     	<hr class="mb-3"> 
 	    <ul>
+	    	<li>Значения таблицы отсортированы по ID пациента;</li>
 	    	<li>Для редактирования данных о препарате:</li>
 	    		<ol>
-	    			<li>Найдите нужные ID препарата и ID пациента;</li>
+	    			<li>Обратитесь к таблице, расположенной в нижней части экрана;</li>
+	    			<li>Найдите нужный ID препарата;</li>
 	    			<li>Нажмите <u>Изменить</u>;</li>
+	    			<li>После обновления страницы вы обнаружите заполненные формы;</li>
 	    			<li>Выберите нужную форму, и отредактируйте ее;</li>
-	    			<li>Нажмите кнопку Сохранить изменения.</li>
+	    			<li>Нажмите кнопку <u>Сохранить изменения</u>;</li>
+	    			<li>После обновления страницы вы обнаружите, что строка изменена.</li>
 	    		</ol>
-	    		<li>Для удаления данных о препарате:</li>
+	    		<li>Для удаления данных о препарата:</li>
 	    		<ol>
-	    			<li>Найдите нужные ID препарата и ID пациента;</li>
-	    			<li>Нажмите <u>Удалить</u>.</li>
+	    			<li>Обратитесь к таблице, расположенной в нижней части экрана;</li>
+	    			<li>Найдите нужный ID препарата;</li>
+	    			<li>Нажмите <u>Удалить</u>;</li>
+	    			<li>После обновления страницы вы обнаружите, что строка удалена.</li>
 	    		</ol>
 	    </ul>
 	    <hr class="mb-3"> 
@@ -119,7 +125,7 @@
 						<td>Редактирование</td>
 		  		</tr>
 		  		<?php
-						$sql = mysqli_query($link, 'SELECT `id_number`,`id_medication`, `id_patient`, `medicine`, `dose`, `start_date`,  `ending_date` FROM `medication`');
+						$sql = mysqli_query($link, 'SELECT `id_number`,`id_medication`, `id_patient`, `medicine`, `dose`, `start_date`,  `ending_date` FROM `medication` ORDER BY `id_patient`');
 						while ($result = mysqli_fetch_array($sql)) {
 			  			echo '<tr>' .
 			  			"<td>{$result['id_medication']}</td>" .
@@ -133,10 +139,8 @@
 			  			'</tr>';
 						}
 		  		?>
-			</table>
+				</table>
 	  	</div>
-	 		<hr class="mb-4">
-	  	<a href="medical2.html" class="btn btn-secondary btn-lg btn-block w-50">Добавить препарат</a>
 	  	<hr class="mb-4">
 	  	<a href="mainMenu.html" class="btn btn-secondary btn-lg btn-block w-50">Вернуться на главную страницу</a>
 		</div>
@@ -145,5 +149,6 @@
         <p>Федеральное государственное бюджетное учреждение «Национальный медицинский исследовательский центр детской гематологии, онкологии и иммунологии имени Дмитрия Рогачева» Министерства здравоохранения Российской Федерации<br>© 2016 – 2020 гг. Все права защищены.</p>
       </div>
     </footer>
+    <script>(function() {'use strict'; window.addEventListener('load', function() { var forms = document.getElementsByClassName('needs-validation'); var validation = Array.prototype.filter.call(forms, function(form) { form.addEventListener('submit', function(event) { if (form.checkValidity() === false) { event.preventDefault(); event.stopPropagation(); } form.classList.add('was-validated'); }, false); }); }, false); })();</script>
   </body>
 </html>

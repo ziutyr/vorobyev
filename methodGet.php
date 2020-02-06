@@ -71,18 +71,29 @@
     	<h4 class="mb-4">Краткая инструкция по редактированию</h4>
     	<hr class="mb-3"> 
 	    <ul>
-	    	<li>Пациенты отсортированы по ID пациента;</li>
+	    	<li>Значения таблицы отсортированы по ID пациента;</li>
+	    	<li>Для удаления данных о пациенте:</li>
+	    		<ol>
+	    			<li>Обратитесь к таблице, расположенной в нижней части экрана;</li>
+	    			<li>Найдите нужный ID пациента;</li>
+	    			<li>Нажмите <u>Удалить</u>;</li>
+	    			<li>После обновления страницы вы обнаружите, что строка удалена.</li>
+	    		</ol>
 	    	<li>Для редактирования данных о пациенте:</li>
 	    		<ol>
+	    			<li>Обратитесь к таблице, расположенной в нижней части экрана;</li>
 	    			<li>Найдите нужный ID пациента;</li>
 	    			<li>Нажмите <u>Изменить</u>;</li>
+	    			<li>После обновления страницы вы обнаружите заполненные формы;</li>
 	    			<li>Выберите нужную форму, и отредактируйте ее;</li>
-	    			<li>Нажмите кнопку Сохранить изменения.</li>
+	    			<li>Нажмите кнопку <u>Сохранить изменения</u>;</li>
+	    			<li>После обновления страницы вы обнаружите, что строка таблицы изменена.</li>
 	    		</ol>
-	    		<li>Для удаления данных о пациенте:</li>
+	    	<li>Для добавления препарата пациенту:</li>
 	    		<ol>
+	    			<li>Обратитесь к таблице, расположенной в нижней части экрана;</li>
 	    			<li>Найдите нужный ID пациента;</li>
-	    			<li>Нажмите <u>Удалить</u>.</li>
+	    			<li>Нажмите <u>Добавить препарат</u>.</li>
 	    		</ol>
 	    </ul>
 	    <hr class="mb-3"> 
@@ -102,11 +113,11 @@
 	        </div>
 	        <div class="col-md-4 mb-3">
 	          <label>Рост<span class="text-muted">(В сантиметрах)</span></label>
-	          <input type="text" class="form-control" name="height" value="<?= isset($_GET['red_id']) ? $patient['height'] : ''; ?>">
+	          <input type="number" class="form-control" name="height" max="280" value="<?= isset($_GET['red_id']) ? $patient['height'] : ''; ?>">
 	        </div>
 	        <div class="col-md-4 mb-3">
 	          <label>Вес<span class="text-muted">(В килограммах)</span></label>
-	          <input type="text" class="form-control" name="weight" value="<?= isset($_GET['red_id']) ? $patient['weight'] : ''; ?>">
+	          <input type="number" class="form-control" name="weight" max="610" value="<?= isset($_GET['red_id']) ? $patient['weight'] : ''; ?>">
 	        </div>
 	        <div class="col-md-4 mb-3">
 	          <label>Группа крови</label>
@@ -127,6 +138,7 @@
 						<td>Группа крови</td>
 						<td>Удаление</td>
 						<td>Редактирование</td>
+						<td>Добавить препарат</td>
 		  		</tr>
 		  		<?php
 						$sql = mysqli_query($link, 'SELECT `id_patient`, `surname`, `name`, `middle_name`,  `height`, `weight`, `blood` FROM `patient`');
@@ -141,13 +153,12 @@
 			  			"<td>{$result['blood']}</td>" .
 			  			"<td><a href='?del_id={$result['id_patient']}'>Удалить</a></td>" .
 			  			"<td><a href='?red_id={$result['id_patient']}'>Изменить</a></td>" .
+			  			"<td><form method='POST' action='medical2.php'><input name='id_patient1' type='submit' value='Добавить препарат'/> <input name='id_patient2' type='hidden' value='{$result['id_patient']}'/></form></td>" .
 			  			'</tr>';
 						}
 		  		?>
 			</table>
 	  	</div>
-	 		<hr class="mb-4">
-	  	<a href="medical.html" class="btn btn-secondary btn-lg btn-block w-50">Добавить пациента</a>
 	  	<hr class="mb-4">
 	  	<a href="mainMenu.html" class="btn btn-secondary btn-lg btn-block w-50">Вернуться на главную страницу</a>
 		</div>
@@ -156,5 +167,6 @@
         <p>Федеральное государственное бюджетное учреждение «Национальный медицинский исследовательский центр детской гематологии, онкологии и иммунологии имени Дмитрия Рогачева» Министерства здравоохранения Российской Федерации<br>© 2016 – 2020 гг. Все права защищены.</p>
       </div>
     </footer>
+    <script>(function() {'use strict'; window.addEventListener('load', function() { var forms = document.getElementsByClassName('needs-validation'); var validation = Array.prototype.filter.call(forms, function(form) { form.addEventListener('submit', function(event) { if (form.checkValidity() === false) { event.preventDefault(); event.stopPropagation(); } form.classList.add('was-validated'); }, false); }); }, false); })();</script>
   </body>
 </html>

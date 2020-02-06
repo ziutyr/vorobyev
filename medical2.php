@@ -17,59 +17,51 @@
     </style>
   </head>
   <body class="bg">
+    <?php 
+      $id_patient = $_POST['id_patient2'];
+      echo $id_patient;
+    ?>
     <header class="py-4 bg-primary text-white text-center">
       <img class="d-block mx-auto mb-3 rounded-circle" src="http://www.fnkc.ru/img/logo.png" width="150px">
       <h2>Простая система для сбора данных осмотра пациента</h2>
     </header>
-    <div class="container bg-light p-4" style="height: 583px;">
-      <h4 class="mb-4">Данные пациента</h4>
-      <form method="POST" action="methodPost.php" class="needs-validation" novalidate> 
+    <div class="container bg-light p-4">
+      <h4 class="mb-4">Данные препарата</h4>
+      <form method="POST" action="methodPost2.php" class="needs-validation" novalidate>
+        <div class="form-group mb-3">
+          <label>ID препарата</label>
+          <input type="number" name="id_medication" class="form-control" required>
+          <div class="invalid-feedback">Требуется ввести ID препарата</div>
+        </div>
         <div class="form-group mb-3">
           <label>ID пациента</label>
-          <input name="id_patient" type="number" class="form-control" required>
-          <div class="invalid-feedback">Требуется ввести ID пациента в нужном формате</div>
+          <input type="number" name="id_patient" class="form-control" value="<?php echo $id_patient; ?>" required readonly>
+        </div>
+        <div class="form-group mb-3">
+          <label>Название препарата</label>
+          <input type="text" name="medicine" class="form-control" required>
+          <div class="invalid-feedback">Требуется ввести название препарата</div>
+        </div>
+        <div class="form-group mb-3">
+          <label>Доза</label>
+          <input type="text" name="dose" class="form-control" required>
+          <div class="invalid-feedback">Требуется ввести дозу</div>
         </div>
         <div class="form-row">
-          <div class="form-group col-md-4 mb-3">
-            <label>Фамилия</label>
-            <input name="surname" type="text" class="form-control" placeholder="Иванов" required>
-            <div class="invalid-feedback">Требуется ввести фамилию</div>
+          <div class="form-group col-md-6 mb-3">
+            <label>Дата начала использования</label>
+            <input type="date" name="start_date" class="form-control" required>
+            <div class="invalid-feedback">Требуется ввести дату</div>
           </div>
-          <div class="form-group col-md-4 mb-3">
-            <label>Имя</label>
-            <input name="name" type="text" class="form-control" placeholder="Иван" required>
-            <div class="invalid-feedback">Требуется ввести имя</div>
-          </div>
-          <div class="form-group col-md-4 mb-3">
-            <label>Отчество</label>
-            <input name="middle_name" type="text" class="form-control" placeholder="Иванович" required>
-            <div class="invalid-feedback">Требуется ввести отчество</div>
-          </div>
-        </div>
-        <div class="form-row">
-          <div class="col-md-4 mb-3">
-            <label>Рост<span class="text-muted">(В сантиметрах)</span></label>
-            <input name="height" type="number" class="form-control" max="280" required>
-            <div class="invalid-feedback">Требуется ввести рост в нужном формате</div>
-          </div>
-          <div class="col-md-4 mb-3">
-            <label>Вес<span class="text-muted">(В килограммах)</span></label>
-            <input name="weight" type="number" class="form-control" max="610" required>
-            <div class="invalid-feedback">Требуется ввести вес в нужном формате</div>
-          </div>
-          <div class="col-md-4 mb-3">
-            <label>Группа крови</label>
-            <select name="blood" class="custom-select d-block w-100" required>
-              <option selected hidden value="">Choose...</option>
-              <option value="I Группа крови">I Группа крови</option>
-              <option value="II Группа крови">II Группа крови</option>
-              <option value="III Группа крови">III Группа крови</option>
-              <option value="IV Группа крови">IV Группа крови</option>
-            </select>
-            <div class="invalid-feedback">Требуется выбрать группу крови</div>
+          <div class="form-group col-md-6 mb-3">
+            <label>Дата окончания использования</label>
+            <input type="date" name="ending_date" class="form-control" required>
+            <div class="invalid-feedback">Требуется ввести дату</div>
           </div>
         </div>
         <button class="btn btn-primary btn-lg btn-block w-50 mb-4" type="submit">Сохранить данные</button>
+        <hr class="mb-4">
+        <a href="methodGet.php" class="btn btn-secondary btn-lg btn-block w-50" type="submit">Вернуться на предыдущую страницу</a>
         <hr class="mb-4">
         <a href="mainMenu.html" class="btn btn-secondary btn-lg btn-block w-50" type="submit">Вернуться на главную страницу</a>
       </form>

@@ -47,7 +47,7 @@
 					". $conn->error;
 				}
 			?>
-			<a href="medical2.html" class="btn btn-primary btn-lg btn-block w-50 mt-4" type="submit">Добавить препарат</a>
+			<a href="methodGet.php" class="btn btn-primary btn-lg btn-block w-50 mt-4" type="submit">Добавить препарат пациенту</a>
 			<hr class="mb-4">
 			<a href="mainMenu.html" class="btn btn-secondary btn-lg btn-block w-50 mt-4" type="submit">Вернуться на главную страницу</a>
 		</div>
